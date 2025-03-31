@@ -2,7 +2,7 @@
   <% @communities.each do |community| %>
     <div class="card p-3 mt-5">
       <h3>
-        <strong><%= link_to community.name, community, class: "text-decoration-none" %></strong>
+        <%= link_to community.name, community, class: "text-decoration-none fw-semibold" %>
       </h3>
       <%= simple_format community.rules %>
     </div>
