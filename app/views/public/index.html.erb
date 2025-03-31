@@ -1,1 +1,36 @@
-<h1>Hi</h1>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col">
+      <p class="h5">Trending Today</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">Trending 1</div>
+    <div class="col-sm-3">Trending 2</div>
+    <div class="col-sm-3">Trending 3</div>
+    <div class="col-sm-3">Trending 4</div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col">
+      <div class="h5">Popular posts</div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-8">Left col (wider)</div>
+    <div class="col-4">
+      
+      <p class="h5">Up and coming communities</p>
+      <div class="card">
+        <div class="list-group list-group-flush">
+          <% @communities.each do |community| %>
+            <div class="list-group-item"><%= link_to community.name, community, class: "text-decoration-none" %></div>
+          <% end %>
+        </div>
+      </div>
+      <%= link_to "View all", communities_path, class: "btn btn-primary mt-3"%>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-sm-6">
+    <%= form_for @community do |form| %>
+    <style>
+      .border-bottom-only {
+        border: none;
+        border-bottom: 1px solid #888;
+        border-radius: 0;
+        outline: none;
+        box-shadow: none;
+        background-color: transparent;
+      }
+
+      .border-bottom-only:focus {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+    </style>
+
+    <script>
+      document.addEventListener("input", function (event) {
+        if (event.target.tagName.toLowerCase() === "textarea") {
+          event.target.style.height = "auto";
+          event.target.style.height = event.target.scrollHeight + "px";
+        }
+      });
+    </script>
+
+    <div class="form-group mb-4">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-control border-bottom-only mb-2" %>
+    </div>
+    <div class="form-group mb-4">
+      <%= form.label :url %>
+      <%= form.text_field :url, class: "form-control border-bottom-only mb-2" %>
+    </div>
+    <div class="form-group mb-4">
+      <%= form.label :rules %>
+      <%= form.text_area :rules, class: "form-control border-bottom-only mb-2", style: "overflow: hidden; resize: none;" %>
+    </div>
+
+    <div class="text-end">
+      <%= form.submit "Submit", class: "btn btn-primary" %>
+    </div>
+    
+  <% end %>
+  </div>
+</div>

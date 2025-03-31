@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <p class="h3 m-0">
+      <%= link_to "Freddit", root_path, class: "text-decoration-none fw-semibold"%>
+    </p>
+    <div class="ml-auto">
+      <% if account_signed_in? %>
+        <%= link_to "Sign out", destroy_account_session_path, 
+          data: { "turbo-method": :delete }, 
+          class: "btn btn-danger" %>
+      <% else %>
+        <%= link_to "Log In", new_account_session_path, class: "btn btn-outline-primary" %>
+        <%= link_to "Sign Up", new_account_registration_path, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</nav>
