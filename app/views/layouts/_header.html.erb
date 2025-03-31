@@ -5,9 +5,19 @@
     </p>
     <div class="ml-auto">
       <% if account_signed_in? %>
-        <%= link_to "Sign out", destroy_account_session_path, 
-          data: { "turbo-method": :delete }, 
-          class: "btn btn-danger" %>
+        <div class="dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= current_account.full_name %>
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+            <%= link_to "Profile", profile_path(current_account.username), class: "dropdown-item" %>
+            <%= link_to "Settings", edit_account_registration_path, class: "dropdown-item" %>
+            <%= link_to "Sign out", destroy_account_session_path, 
+              data: { "turbo-method": :delete }, 
+              class: "dropdown-item text-danger" %>
+          </div>
+        </div>
       <% else %>
         <%= link_to "Log In", new_account_session_path, class: "btn btn-outline-primary" %>
         <%= link_to "Sign Up", new_account_registration_path, class: "btn btn-primary" %>

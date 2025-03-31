@@ -31,18 +31,28 @@
       * {
         font-family: 'Inter Tight', sans-serif !important;
       }
+      .custom-bg-grey {
+        background-color: #eee !important; /* Darker grey */
+      }
+
     </style>
   </head>
 
   <body>
     <%= render partial: "layouts/header" %>
-    <div class="container">
-      <div class="row">
+
+    <section>
+      <div class="container">
+        <div class="row">
           <div class="col-sm-12">
             <%= yield %>
           </div>
+        </div>
       </div>
-    </div>
-    <%= render partial: "layouts/footer" %>
+    </section>
+
+
+
+    <% render partial: "layouts/footer" %>
   </body>
 </html>
