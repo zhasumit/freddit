@@ -1,9 +1,13 @@
 <div class="mt-5">
 </div>
-<%= link_to "Create new post", new_community_post_path(@community), class: "btn btn-primary float-end" %>
-<h3 class="fw-bold text-primary">
+<% if @is_subscribed %>
+  <%= link_to "Create new post", new_community_post_path(@community), class: "btn btn-primary float-end"%>
+<% else %>
+  <%= render partial:"subscribe", locals: { community_id: @community.id } %>
+<% end %>
+<h2 class="fw-semibold text-primary">
   <%= @community.name %>
-</h3>
+</h2>
 
 <div class="row">
   <div class="col-sm-8">
@@ -11,9 +15,16 @@
   </div>
 
   <div class="col-sm-4">
-    <small>
-      <%= simple_format @community.rules %>
-    </small>
+    <div class="card p-3">
+      <h5>About community</h5>
+      <p><%= pluralize @subscriber_count, "member" %></p>
+      <p class="text-muted"><%= @community.summary %></p>
+      <h5>Rules</h5>
+      <small class="text-secondary">
+        <%= simple_format @community.rules %>
+      </small>
+    </div>
+
   </div>
 
 </div>
