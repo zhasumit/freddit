@@ -1,0 +1,13 @@
+<% comments.each do |comment| %>
+  <div class="comment mb-3 ps-2 border-start">
+    <div class="d-flex">
+      <div class="me-2 fw-semibold">
+        <%= link_to comment.account.username, profile_path(comment.account.username), class: "text-decoration-none text-info small" %>
+      </div>
+    </div>
+    
+    <div class="ms-3 mt-1 text-muted small">
+      <%= simple_format comment.message, class: "mb-0" %>
+    </div>
+  </div>
+<% end %>

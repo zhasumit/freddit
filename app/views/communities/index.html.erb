@@ -1,6 +1,7 @@
+<div class="mt-5"></div>
 <% if @communities.any? %>
   <% @communities.each do |community| %>
-    <div class="card p-3 mt-5">
+    <div class="card p-3 mt-2">
       <h3>
         <%= link_to community.name, community, class: "text-decoration-none fw-semibold" %>
       </h3>
