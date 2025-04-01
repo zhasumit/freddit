@@ -9,7 +9,22 @@
 
   <div class="col-11"> 
     <div class="mt-5 mb-5">
-      <h2><%= @post.title %></h2>
+      <div class="d-flex justify-content-between align-items-center">
+        <h2><%= @post.title %></h2>
+        <% if current_account && current_account == @post.account %>
+          <%= link_to community_post_path(params[:community_id], @post),
+                      method: :delete,
+                      data: { 
+                        confirm: "Are you sure you want to delete this post?",
+                        turbo_confirm: "Are you sure you want to delete this post?",
+                        turbo_method: :delete
+                      },
+                      class: "btn btn-link text-danger" do %>
+            <img src="/trash.svg" width="35" height="35" title="Delete post">
+          <% end %>
+        <% end %>
+      </div>
+
       <%= simple_format @post.body %>
       <div class="mb-5"></div>
 
