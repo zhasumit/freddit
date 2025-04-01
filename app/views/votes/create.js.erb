@@ -1,0 +1,9 @@
+$("#vote-actions-<%= @post.id %> .score").text("<%= @post.score %>")
+$("#vote-actions-<%= @post.id %> .upvote").removeClass("active");
+$("#vote-actions-<%= @post.id %> .downvote").removeClass("active");
+
+<% if current_account.upvoted_post_ids.include?(@post.id) %>
+  $("#vote-actions-<%= @post.id %> .upvote").addClass("active");
+<% elsif current_account.downvoted_post_ids.include?(@post.id) %>
+  $("#vote-actions-<%= @post.id %> .downvote").addClass("active");
+<% end %>
