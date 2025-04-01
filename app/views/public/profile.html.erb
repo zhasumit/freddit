@@ -1,13 +1,23 @@
 <div class="row mt-5">
   <div class="col-sm-8">
-  <%= render partial: "posts/list", locals: { posts: @posts } %>
+    <%= render partial: "posts/list", locals: { posts: @posts } %>
   </div>
   <div class="col-sm-4">
     <p class="h4"><%= @profile.full_name %></p>
-    <p><%= @profile.username %></p>
-    <p class="text-muted"><small>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ipsum neque dolore ab saepe sequi amet, veniam officia a quia blanditiis repellendus dolores sit ipsam sunt explicabo sint aliquid non labore praesentium! Obcaecati incidunt perferendis tempora blanditiis debitis. Aperiam hic architecto assumenda voluptatibus iste, ducimus accusamus ratione doloribus illum quidem.
-    </small></p>
-    <p>Cake day: <%= @profile.created_at.strftime("%d, %m, %Y") %></p>
+    <div class="d-flex align-items-center gap-2 mb-2">
+      <p class="m-0">@<%= @profile.username %></p>
+      <div class="d-flex align-items-center">
+        <img src="/karma.svg" class="karma-icon">
+        <span class="text-muted fs-8"><%= @profile.karma %></span>
+      </div>
+    </div>
+      <p class="text-muted"><small><%= @profile.bio %></small></p>
+    <p>Cake day: <%= @profile.created_at.strftime("%B %d, %Y") %></p>
   </div>
 </div>
+
+<style>
+  .karma-icon{
+    height: 1.3em
+  }
+</style>
