@@ -1,7 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <p class="h3 m-0">
-      <%= link_to "Freddit", root_path, class: "text-decoration-none fw-semibold"%>
+      <%= link_to root_path, class: "text-decoration-none fw-semibold d-flex align-items-center" do %>
+        <%= image_tag "/icon.svg", alt: "Freddit Logo", width: 24, height: 24, class: "me-2" %>
+        Freddit
+      <% end %>
     </p>
     <div class="d-flex align-items-center gap-3">
       <% if account_signed_in? %>
