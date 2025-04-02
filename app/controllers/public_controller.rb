@@ -1,7 +1,9 @@
 class PublicController < ApplicationController
   def index
     @communities = Community.all.limit(5)
-    @posts = Post.limit(20).sort_by { |p| p.score }.reverse
+    top_posts = Post.limit(20).sort_by { |p| p.score }.reverse
+    @trending_posts = top_posts.sample(4) # Randomly select 4 from top 20
+    @posts = Post.order(created_at: :desc).limit(20) # Show recent posts
     @vote = Vote.new
   end
 
